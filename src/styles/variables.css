@@ -1,0 +1,12 @@
+:root {
+    --font-title: 'Caprasimo', sans-serif;
+    --font-body: 'Baloo 2', system-ui, sans-serif;
+    
+    --color-black: #1a1a1a;
+    --color-bg: #F5EFE0;
+    --color-label: #FAF6EA;
+    --color-grid: rgba(0,0,0,0.05);
+    
+    --grid-size: 50px;
+    --grid-gap: 48px;
+}
