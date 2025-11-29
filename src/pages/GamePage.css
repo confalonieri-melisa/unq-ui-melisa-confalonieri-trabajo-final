@@ -1,0 +1,22 @@
+.desktop {
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    background-image: 
+    repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent var(--grid-gap),
+        var(--color-grid) var(--grid-gap),
+        var(--color-grid) var(--grid-size)
+    ),
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent var(--grid-gap),
+        var(--color-grid) var(--grid-gap),
+        var(--color-grid) var(--grid-size)
+    );
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
