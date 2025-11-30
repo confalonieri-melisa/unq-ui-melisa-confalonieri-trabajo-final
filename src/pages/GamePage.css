@@ -1,22 +1,41 @@
 .desktop {
     min-height: 100vh;
-    background-color: var(--color-bg);
+    background-color: var(--color-background);
     background-image: 
-    repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent var(--grid-gap),
-        var(--color-grid) var(--grid-gap),
-        var(--color-grid) var(--grid-size)
-    ),
-    repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent var(--grid-gap),
-        var(--color-grid) var(--grid-gap),
-        var(--color-grid) var(--grid-size)
-    );
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent var(--grid-gap),
+            var(--color-grid) var(--grid-gap),
+            var(--color-grid) var(--grid-size)
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent var(--grid-gap),
+            var(--color-grid) var(--grid-gap),
+            var(--color-grid) var(--grid-size)
+        );
     padding: 1rem;
     position: relative;
     overflow: hidden;
+    z-index: var(--z-desktop);
+}
+
+.game-page {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.window-layer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+.window-menu {
+    z-index: var(--z-menu);
 }

@@ -23,6 +23,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3 {
+    font-family: var(--font-title);
+    letter-spacing: 0.5px;
+}
+
 #root {
     min-height: 100vh;
 }

@@ -1,9 +1,9 @@
-import disk from "@/assets/disk-icon.svg";
-import folder from "@/assets/folder-icon.svg";
-import picture from "@/assets/image-icon.svg";
-import music from "@/assets/music-icon.svg";
-import paint from "@/assets/paint-icon.svg";
-import internet from "@/assets/web-icon.svg";
+import disk from "../../assets/disk-icon.svg";
+import folder from "../../assets/folder-icon.svg";
+import picture from "../../assets/image-icon.svg";
+import music from "../../assets/music-icon.svg";
+import paint from "../../assets/paint-icon.svg";
+import internet from "../../assets/web-icon.svg";
 import "./DesktopIcons.css"
 
 export const DesktopIcons = () => {

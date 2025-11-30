@@ -1,0 +1,83 @@
+.retro-window {
+    display: flex;
+    flex-direction: column;
+    max-width: 90vh;
+    background: var(--color-window-bg);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    height: 100%;
+}
+
+.retro-titlebar {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--color-window-titlebar);
+    border-bottom: var(--border-width) solid var(--border-color);
+    gap: 0.75rem;
+}
+
+.titlebar-buttons {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.titlebar-button {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.titlebar-button.red {
+    background: var(--color-button-red);
+}
+
+.titlebar-button.yellow {
+    background: var(--color-button-yellow);
+}
+
+.titlebar-button.green {
+    background: var(--color-button-green);
+}
+
+.retro-title {
+    font-weight: bold;
+    font-size: 0.90rem;
+    color: var(--color-black);
+    display: flex;
+    width: 100%
+}
+
+.title-left {
+    margin-left: 1rem
+}
+
+.title-right {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.retro-content {
+    position: relative;
+    flex: 1;
+    padding: var(--spacing-lg);
+    padding-right: 2.5rem;
+}
+
+.window-large {
+    width: var(--window-lg-width);
+    min-height: var(--window-lg-min-height);
+}
+
+.window-medium {
+    width: var(--window-md-width);
+    min-height: var(--window-md-min-height);
+}
+
+.window-small {
+    width: var(--window-sm-width);
+    min-height: var(--window-sm-min-height);
+}

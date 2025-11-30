@@ -2,11 +2,41 @@
     --font-title: 'Caprasimo', sans-serif;
     --font-body: 'Baloo 2', system-ui, sans-serif;
     
-    --color-black: #1a1a1a;
-    --color-bg: #F5EFE0;
+    --color-black: #1A1A1A;
+    --color-background: #F5EFE0;
     --color-label: #FAF6EA;
     --color-grid: rgba(0,0,0,0.05);
-    
+    --color-window-bg: #FFF8E7;
+    --color-window-titlebar: #FD864C;
+    --color-button-red: #E76F51;
+    --color-button-yellow: #F5C77C;
+    --color-button-green: #2A9D8F;
+    --color-difficulty-1: #FACA78;
+    --color-difficulty-2: #F57F5B;
+    --color-difficulty-3: #68C7C1;
+    --color-difficulty-4: #DD5341;
+
     --grid-size: 50px;
     --grid-gap: 48px;
+
+    --border-width: 3px;
+    --border-color: var(--color-black);
+    --border-radius: 0.5rem;
+
+    --shadow-small: 4px 4px 0px var(--border-color);
+    --shadow-medium: 6px 6px 0px var(--border-color);
+
+    --window-lg-width: 620px;
+    --window-lg-min-height: 500px;
+    --window-md-width: 540px;
+    --window-md-min-height: 260px;
+    --window-sm-width: 360px;
+    --window-sm-min-height: 160px;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+
+    --z-desktop: 0;
+    --z-menu: 100;
 }

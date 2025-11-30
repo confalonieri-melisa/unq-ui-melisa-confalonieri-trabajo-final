@@ -1,0 +1,99 @@
+.menu-window {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.menu-title h1 {
+    text-transform: uppercase;
+    font-size: 2.3rem;
+}
+
+.menu-subtitle {
+    font-size: 1.3rem;
+    margin-top: var(--spacing-lg);
+    opacity: 0.85;
+}
+
+.menu-divider {
+    border: 1px solid var(--color-black);
+    margin-top: var(--spacing-lg);
+}
+
+.difficulty-buttons {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: var(--spacing-md);
+    width: 80%;
+    flex: 1;
+}
+
+.difficulty-btn {
+    background: var(--btn-color);
+    color: var(--color-black);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.difficulty-buttons button:nth-child(1) {
+    --btn-color: var(--color-difficulty-1);
+}
+
+.difficulty-buttons button:nth-child(2) {
+    --btn-color: var(--color-difficulty-2);
+}
+
+.difficulty-buttons button:nth-child(3) {
+    --btn-color: var(--color-difficulty-3); 
+}
+
+.difficulty-buttons button:nth-child(4) {
+    --btn-color: var(--color-difficulty-4);  
+}
+
+.difficulty-buttons button:hover {
+    transform: translateY(-1px);
+}
+
+.difficulty-buttons button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.btn-label {
+    font-weight: bold;
+}
+
+.btn-stars {
+    font-size: 1.25rem;
+    letter-spacing: 5px;
+}
+
+.menu-footer {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    font-size: 0.75rem;
+    color: var(--color-black);
+    opacity: 0.6;
+    text-align: center;
+}
