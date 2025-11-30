@@ -67,7 +67,7 @@ export const useTriviaGame = () => {
             (currentIndex + 1 >= questions.length) 
                 ? setGameState("results")
                 : setCurrentIndex((i) =>  i + 1);
-        }, 1200);
+        }, 1000);
 
         setTimeoutId(id);
     }
@@ -86,6 +86,7 @@ export const useTriviaGame = () => {
         questions,
         currentIndex,
         currentQuestion,
+        totalQuestions: questions.length,
         corrects,
         selectedAnswer,
         isCorrect,

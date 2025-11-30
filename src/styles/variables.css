@@ -29,7 +29,7 @@
     --window-lg-width: 620px;
     --window-lg-min-height: 500px;
     --window-md-width: 540px;
-    --window-md-min-height: 260px;
+    --window-md-min-height: 400px;
     --window-sm-width: 360px;
     --window-sm-min-height: 160px;
 
@@ -39,4 +39,5 @@
 
     --z-desktop: 0;
     --z-menu: 100;
+    --z-questions: 200;
 }

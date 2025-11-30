@@ -28,14 +28,25 @@
     pointer-events: none;
 }
 
-.window-layer {
+.window-menu {
+    z-index: var(--z-menu);
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: auto;
 }
 
-.window-menu {
-    z-index: var(--z-menu);
+.desktop.playing .window-menu {
+    pointer-events: none;
+    filter: brightness(0.9);
+}
+
+.window-question {
+    z-index: var(--z-questions);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    pointer-events: auto;
 }

@@ -1,4 +1,4 @@
-import { FakeScrollbar } from "../fake-scrollbar/FakeScrollbar"
+import { FakeScrollbar } from "./fake-scrollbar/FakeScrollbar"
 import "./RetroWindow.css"
 
 export const RetroWindow = ({ title, children, className }) => {
