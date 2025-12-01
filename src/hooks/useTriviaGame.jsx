@@ -9,6 +9,8 @@ export const useTriviaGame = () => {
     const [corrects, setCorrects] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
+    const [answeredQuestions, setAnsweredQuestions] = useState([]);
+
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
     const [timeoutId,setTimeoutId] = useState(null);
@@ -25,6 +27,7 @@ export const useTriviaGame = () => {
             setCorrects(0);
             setSelectedAnswer(null);
             setIsCorrect(null);
+            setAnsweredQuestions([]); 
 
             setGameState("playing");
         } catch (err) {
@@ -38,18 +41,20 @@ export const useTriviaGame = () => {
     const currentQuestion = questions[currentIndex] || null;
 
     const answerQuestion = async(option) => {
+        if (loading || selectedAnswer !== null) return;
         if (timeoutId) clearTimeout(timeoutId);
 
         try {
             setLoading(true);
             setErrorMessage(null);
-
+            
             const data = await checkAnswer(currentQuestion.id, option);
 
             setSelectedAnswer(option);
             setIsCorrect(data.answer);
 
             if(data.answer) setCorrects((c) => c + 1);
+            setAnsweredQuestions(prev => [...prev, data.answer ? "correct" : "incorrect"]);
 
             handleNextStep();
         } catch (err) {
@@ -64,20 +69,39 @@ export const useTriviaGame = () => {
             setSelectedAnswer(null);
             setIsCorrect(null);
 
-            (currentIndex + 1 >= questions.length) 
-                ? setGameState("results")
-                : setCurrentIndex((i) =>  i + 1);
-        }, 1000);
+            setCurrentIndex((prev) => {
+                const next = prev + 1;
+
+                if (next >= questions.length) {
+                    setGameState("results");
+                    return prev;
+                }
+                return next;
+            });
+        }, 800);
 
         setTimeoutId(id);
     }
 
     const playAgain = () => {
+        if (timeoutId) clearTimeout(timeoutId);
+        setTimeoutId(null);
+
         startGame(difficulty);
     }
 
     const returnToMenu = () => {
+        if (timeoutId) clearTimeout(timeoutId);
+        setTimeoutId(null);
+        
         setGameState("menu");
+        setDifficulty(null);
+        setQuestions([]);
+        setCurrentIndex(0);
+        setCorrects(0);
+        setSelectedAnswer(null);
+        setIsCorrect(null);
+        setAnsweredQuestions([]); 
     } 
 
     return {
@@ -90,6 +114,7 @@ export const useTriviaGame = () => {
         corrects,
         selectedAnswer,
         isCorrect,
+        answeredQuestions,
         loading,
         errorMessage,
         setErrorMessage,

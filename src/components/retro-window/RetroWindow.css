@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    background: var(--color-window-titlebar);
+    background: var(--color-orange);
     border-bottom: var(--border-width) solid var(--border-color);
     gap: 0.75rem;
 }
@@ -32,15 +32,15 @@
 }
 
 .titlebar-button.red {
-    background: var(--color-button-red);
+    background: var(--color-red);
 }
 
 .titlebar-button.yellow {
-    background: var(--color-button-yellow);
+    background: var(--color-yellow);
 }
 
 .titlebar-button.green {
-    background: var(--color-button-green);
+    background: var(--color-green);
 }
 
 .retro-title {
@@ -80,4 +80,9 @@
 .window-small {
     width: var(--window-sm-width);
     min-height: var(--window-sm-min-height);
+}
+
+.window-small.retro-window,
+.window-small .retro-window {
+    height: auto;
 }

@@ -25,7 +25,8 @@
 
 .menu-divider {
     border: 1px solid var(--color-black);
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    box-shadow: var(--shadow-small);
 }
 
 .difficulty-buttons {
@@ -56,19 +57,19 @@
 }
 
 .difficulty-buttons button:nth-child(1) {
-    --btn-color: var(--color-difficulty-1);
+    --btn-color: var(--color-gold);
 }
 
 .difficulty-buttons button:nth-child(2) {
-    --btn-color: var(--color-difficulty-2);
+    --btn-color: var(--color-coral);
 }
 
 .difficulty-buttons button:nth-child(3) {
-    --btn-color: var(--color-difficulty-3); 
+    --btn-color: var(--color-turquoise); 
 }
 
 .difficulty-buttons button:nth-child(4) {
-    --btn-color: var(--color-difficulty-4);  
+    --btn-color: var(--color-dark-red);  
 }
 
 .difficulty-buttons button:hover {

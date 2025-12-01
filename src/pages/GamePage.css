@@ -16,7 +16,7 @@
             var(--color-grid) var(--grid-gap),
             var(--color-grid) var(--grid-size)
         );
-    padding: 1rem;
+    padding: var(--spacing-md);
     position: relative;
     overflow: hidden;
     z-index: var(--z-desktop);
@@ -29,11 +29,29 @@
 }
 
 .window-menu {
-    z-index: var(--z-menu);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: var(--z-menu);
+    pointer-events: auto;
+}
+
+.window-question {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    z-index: var(--z-questions);
+    pointer-events: auto;
+}
+
+.window-results {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-results);
     pointer-events: auto;
 }
 
@@ -42,11 +60,36 @@
     filter: brightness(0.9);
 }
 
-.window-question {
-    z-index: var(--z-questions);
+.desktop.results .window-menu {
+    pointer-events: none;
+    filter: brightness(0.9);
+}
+
+.desktop.results .window-question {
+    pointer-events: none;
+    filter: brightness(0.85);
+}
+
+.window-error {
+    z-index: var(--z-error);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-45%, -50%);
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -80%);
     pointer-events: auto;
+}
+
+.error-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-error);
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: auto;
+    backdrop-filter: blur(2px);
 }

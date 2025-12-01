@@ -14,6 +14,7 @@
     color: var(--color-black);
     min-height: 120px;
     align-content: center;
+    text-align: center;
 }
 
 .options-list {
@@ -44,7 +45,7 @@
 }
 
 .option-btn:not(.correct):not(.incorrect):hover {
-    background: var(--color-button-yellow);
+    background: var(--color-yellow);
 }
 
 .option-btn:disabled {
@@ -82,11 +83,11 @@
 }
 
 .correct {
-    background: var(--color-button-green);
+    background: var(--color-green);
     color: var(--color-black);
 }
 
 .incorrect {
-    background: var(--color-button-red);
+    background: var(--color-red);
     color: var(--color-black);
 }

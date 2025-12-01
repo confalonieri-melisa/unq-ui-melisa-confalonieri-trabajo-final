@@ -3,9 +3,7 @@ import { RetroWindow } from "../retro-window/RetroWindow";
 import { ProgressBar } from "./ProgressBar.jsx"
 import "./QuestionWindow.css"
 
-export const QuestionWindow = ({ question, currentIndex, totalQuestions, onAnswer, selectedAnswer, isCorrect }) => {
-    const [answersStatus, setAnswersStatus] = useState(Array(totalQuestions).fill(null));
-
+export const QuestionWindow = ({ question, currentIndex, totalQuestions, onAnswer, selectedAnswer, isCorrect, answersStatus }) => {    
     const options = [
         { id: "option1", text: question.option1 },
         { id: "option2", text: question.option2 },
@@ -13,16 +11,10 @@ export const QuestionWindow = ({ question, currentIndex, totalQuestions, onAnswe
         { id: "option4", text: question.option4 },
     ];
 
-    useEffect(() => {
-        if(selectedAnswer != null && isCorrect != null) {
-            const updatedAnswers = [...answersStatus];
-            updatedAnswers[currentIndex] = isCorrect ? "correct" : "incorrect";
-            setAnswersStatus(updatedAnswers);
-        }
-    }, [isCorrect, selectedAnswer, currentIndex])
+     if (!question) return null;
 
     return (
-        <RetroWindow className="window-large" title="Question">
+        <RetroWindow className="window-large" title={`Question ${currentIndex + 1} / ${totalQuestions}`}>
             <div className="question-content">
                 <h2 className="question-text"> {question.question} </h2>
 

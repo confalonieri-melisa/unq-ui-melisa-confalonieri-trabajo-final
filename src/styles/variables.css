@@ -7,14 +7,14 @@
     --color-label: #FAF6EA;
     --color-grid: rgba(0,0,0,0.05);
     --color-window-bg: #FFF8E7;
-    --color-window-titlebar: #FD864C;
-    --color-button-red: #E76F51;
-    --color-button-yellow: #F5C77C;
-    --color-button-green: #2A9D8F;
-    --color-difficulty-1: #FACA78;
-    --color-difficulty-2: #F57F5B;
-    --color-difficulty-3: #68C7C1;
-    --color-difficulty-4: #DD5341;
+    --color-orange: #FD864C;
+    --color-red: #E76F51;
+    --color-yellow: #F5C77C;
+    --color-green: #2A9D8F;
+    --color-gold: #FACA78;
+    --color-coral: #F57F5B;
+    --color-turquoise: #68C7C1;
+    --color-dark-red: #DD5341;
 
     --grid-size: 50px;
     --grid-gap: 48px;
@@ -28,8 +28,8 @@
 
     --window-lg-width: 620px;
     --window-lg-min-height: 500px;
-    --window-md-width: 540px;
-    --window-md-min-height: 400px;
+    --window-md-width: 480px;
+    --window-md-min-height: 450px;
     --window-sm-width: 360px;
     --window-sm-min-height: 160px;
 
@@ -40,4 +40,6 @@
     --z-desktop: 0;
     --z-menu: 100;
     --z-questions: 200;
+    --z-results: 200;
+    --z-error: 400;
 }
