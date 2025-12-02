@@ -13,7 +13,7 @@ export const ResultsWindow = ({ difficulty, score, total, onPlayAgain, onReturnT
         <RetroWindow className="window-medium" title={`Difficulty: ${difficulty.toUpperCase()}`}>
             <div className="results-content">
                 <h2 className="results-title"> Game Over </h2>
-                <div className="results-divider" />
+                <div className="results-divider divider" />
 
                 <div className="score-box">
                     <div className="score-label">Your score</div>
@@ -21,12 +21,12 @@ export const ResultsWindow = ({ difficulty, score, total, onPlayAgain, onReturnT
                     <div className="score-total">out of {total} correct</div>
                     <div className="score-message">{message}</div>
                 </div>
-                <div className="results-divider" />
+                <div className="results-divider divider" />
                 
 
                 <div className="results-buttons">
-                    <button className="action-btn play-again" onClick={onPlayAgain}> ⟲ Play again! </button>
-                    <button className="action-btn return-menu" onClick={onReturnToMenu}> Return to menu </button>
+                    <button className="btn btn-large play-again" onClick={onPlayAgain}> ⟲ Play again! </button>
+                    <button className="btn btn-large return-menu" onClick={onReturnToMenu}> Return to menu </button>
                 </div>
             </div>
         </RetroWindow>

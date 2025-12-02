@@ -24,9 +24,7 @@
 }
 
 .menu-divider {
-    border: 1px solid var(--color-black);
     margin-top: var(--spacing-md);
-    box-shadow: var(--shadow-small);
 }
 
 .difficulty-buttons {
@@ -41,19 +39,6 @@
 
 .difficulty-btn {
     background: var(--btn-color);
-    color: var(--color-black);
-    border: var(--border-width) solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-small);
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-body);
-    font-size: 1.15rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.05s ease, box-shadow 0.05s ease;
 }
 
 .difficulty-buttons button:nth-child(1) {
@@ -70,15 +55,6 @@
 
 .difficulty-buttons button:nth-child(4) {
     --btn-color: var(--color-dark-red);  
-}
-
-.difficulty-buttons button:hover {
-    transform: translateY(-2px);
-}
-
-.difficulty-buttons button:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--border-color);
 }
 
 .btn-label {

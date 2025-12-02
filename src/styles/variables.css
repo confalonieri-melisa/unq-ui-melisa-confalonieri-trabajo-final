@@ -2,11 +2,12 @@
     --font-title: 'Caprasimo', sans-serif;
     --font-body: 'Baloo 2', system-ui, sans-serif;
     
-    --color-black: #1A1A1A;
     --color-background: #F5EFE0;
     --color-label: #FAF6EA;
     --color-grid: rgba(0,0,0,0.05);
     --color-window-bg: #FFF8E7;
+
+    --color-black: #1A1A1A;
     --color-orange: #FD864C;
     --color-red: #E76F51;
     --color-yellow: #F5C77C;
@@ -21,21 +22,31 @@
 
     --border-width: 3px;
     --border-color: var(--color-black);
-    --border-radius: 0.5rem;
+
+    --radius-xs: 0.25rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1.25rem;
+
+    --btn-border-width: 2px;
 
     --shadow-small: 4px 4px 0px var(--border-color);
     --shadow-medium: 6px 6px 0px var(--border-color);
 
-    --window-lg-width: 620px;
-    --window-lg-min-height: 500px;
-    --window-md-width: 480px;
-    --window-md-min-height: 450px;
-    --window-sm-width: 360px;
-    --window-sm-min-height: 160px;
-
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
+
+    --window-lg-width: 620px;
+    --window-lg-min-height: 500px;
+
+    --window-md-width: 480px;
+    --window-md-min-height: 450px;
+
+    --window-sm-width: 360px;
+    --window-sm-min-height: 160px;
+
+    --transition-fast: 0.5s ease;
+    --transition-normal: 0.2s ease;
 
     --z-desktop: 0;
     --z-menu: 100;

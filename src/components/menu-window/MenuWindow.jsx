@@ -7,7 +7,7 @@ export const MenuWindow = ({ difficulties, onSelect }) => {
             <div className="menu-window">
                 <div className="menu-title">
                     <h1>Choose a difficulty</h1>
-                    <hr className="menu-divider"/>
+                    <hr className="menu-divider divider"/>
                     <h3 className="menu-subtitle">
                         Test your knowledge and have fun!
                     </h3>
@@ -15,7 +15,7 @@ export const MenuWindow = ({ difficulties, onSelect }) => {
 
                 <div className="difficulty-buttons">
                     {difficulties.map((diff, index) => (
-                        <button key={diff} className="difficulty-btn" onClick={() => onSelect(diff)}>
+                        <button key={diff} className="btn difficulty-btn" onClick={() => onSelect(diff)}>
                             <span className="btn-stars">
                                     {"★".repeat(index + 1)}
                             </span>

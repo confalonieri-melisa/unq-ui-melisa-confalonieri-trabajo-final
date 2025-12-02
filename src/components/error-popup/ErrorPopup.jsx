@@ -5,8 +5,8 @@ export const ErrorPopup = ({ message, onClose }) => {
     return (
         <RetroWindow className="window-small" title="ERROR">
             <div className="error-popup">
-                <p>{message}</p>
-                <button onClick={onClose}> OK </button>
+                <p className="error-message">{message}</p>
+                <button className="error-btn" onClick={onClose}> OK </button>
             </div>
         </RetroWindow>
     )

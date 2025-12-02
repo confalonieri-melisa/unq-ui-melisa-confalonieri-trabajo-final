@@ -28,6 +28,39 @@ h1, h2, h3 {
     letter-spacing: 0.5px;
 }
 
+.divider {
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-small);
+    opacity: 0.6
+}
+
+.btn {
+    padding: var(--spacing-md) 1.25rem;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: var(--color-black);
+    background-color: var(--color-window-bg);
+    border-radius: var(--radius-sm);
+    border: var(--btn-border-width) solid var(--border-color);
+    box-shadow: var(--shadow-small);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    transition: transform var(--transition-fast),
+                /* box-shadow var(--transition-fast); */
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--border-color);
+}
+
 #root {
     min-height: 100vh;
 }

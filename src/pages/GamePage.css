@@ -28,68 +28,52 @@
     pointer-events: none;
 }
 
-.window-menu {
+.window-menu,
+.window-question,
+.window-results,
+.window-error {
     position: absolute;
+    pointer-events: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.window-menu {
     z-index: var(--z-menu);
-    pointer-events: auto;
 }
 
 .window-question {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-45%, -50%);
     z-index: var(--z-questions);
-    pointer-events: auto;
+    transform: translate(-45%, -50%);
 }
 
 .window-results {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: var(--z-results);
-    pointer-events: auto;
-}
-
-.desktop.playing .window-menu {
-    pointer-events: none;
-    filter: brightness(0.9);
-}
-
-.desktop.results .window-menu {
-    pointer-events: none;
-    filter: brightness(0.9);
-}
-
-.desktop.results .window-question {
-    pointer-events: none;
-    filter: brightness(0.85);
+    transform: translate(-45%, -48%);
 }
 
 .window-error {
     z-index: var(--z-error);
-    position: absolute;
     top: 30%;
     left: 70%;
     transform: translate(-50%, -80%);
-    pointer-events: auto;
 }
 
 .error-overlay {
     position: fixed;
     inset: 0;
     z-index: var(--z-error);
-
     background: rgba(0, 0, 0, 0.45);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    pointer-events: auto;
     backdrop-filter: blur(2px);
+}
+
+.desktop.playing .window-menu,
+.desktop.results .window-menu,
+.desktop.results .window-question {
+    pointer-events: none;
+    filter: brightness(0.85);
 }

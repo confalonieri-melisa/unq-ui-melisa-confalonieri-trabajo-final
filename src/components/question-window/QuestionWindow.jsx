@@ -18,18 +18,22 @@ export const QuestionWindow = ({ question, currentIndex, totalQuestions, onAnswe
             <div className="question-content">
                 <h2 className="question-text"> {question.question} </h2>
 
-                <div className="options-list">
+                <div className="options-grid">
                     {options.map((option) => {
                         const isSelected = selectedAnswer === option.id;
-                        const extraClass = isSelected ? (isCorrect ? " correct" : " incorrect") : "";
+                        const isWrong = isSelected && !isCorrect;
 
+                        let className = "option-btn"
+                        if(isSelected && isCorrect) {className += " correct"}
+                        if(isWrong) {className += " incorrect"}
+                        
                         return (
                             <button
                                 key={option.id}
-                                className={`option-btn${extraClass}`}
+                                className={className}
                                 onClick={() => onAnswer(option.id)}
-                                type="button"
                                 disabled={selectedAnswer !== null}
+                                type="button"
                             >
                                 <span className="option-icon">
                                     {isSelected ? (isCorrect ? "✓" : "✗") : "○"}
