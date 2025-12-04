@@ -1,6 +1,6 @@
 # 🕹 Trivia Game – Web Application
 
-Aplicación web de trivia desarrollada como trabajo práctico final de la materia **Construcción de Interfaces de Usuario** de la Universidad Nacional de Quilmes (UNQ). El juego presenta una interfaz con **estética retro** de ventanas apiladas, incluyendo barras de título con botones decorativos y elementos visuales que simulan un entorno de escritorio clásico. El proyecto está construido con React y consume una API REST externa que proporciona las preguntas y valida las respuestas del usuario.
+Aplicación web de trivia desarrollada como trabajo final integrador de la materia **Construcción de Interfaces de Usuario** de la Universidad Nacional de Quilmes (UNQ). El juego presenta una interfaz con **estética retro** de ventanas apiladas, incluyendo barras de título con botones decorativos y elementos visuales que simulan un entorno de escritorio clásico. El proyecto está construido con React y consume una API REST externa que proporciona las preguntas y valida las respuestas del usuario.
 
 ## 🎮 Funcionalidades
 
