@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { useTriviaGame } from "../hooks/useTriviaGame"
-import { getDifficulties } from "../services/api";
 import { DesktopIcons } from "../components/desktop-icons/DesktopIcons"
 import { MenuWindow } from "../components/menu-window/MenuWindow";
 import { QuestionWindow } from "../components/question-window/QuestionWindow";
@@ -10,11 +8,6 @@ import "./GamePage.css"
 
 const GamePage = () => {
     const game = useTriviaGame();
-    const [difficulties, setDifficulties] = useState([]);
-
-    useEffect(() => {
-        getDifficulties().then(setDifficulties);
-    }, []);
     
     return (
         <div className={`desktop ${game.gameState}`}>
@@ -23,7 +16,7 @@ const GamePage = () => {
                 
                 <div className="window-menu">
                     <MenuWindow
-                        difficulties={difficulties}
+                        difficulties={game.difficulties}
                         onSelect={game.startGame}
                     />
                 </div>

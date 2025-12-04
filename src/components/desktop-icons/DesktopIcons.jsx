@@ -8,12 +8,12 @@ import "./DesktopIcons.css"
 
 export const DesktopIcons = () => {
     const icons = [
-        { src: disk, label: "DISK" },
-        { src: folder, label: "FOLDERS" },
-        { src: picture, label: "PICTURES" },
-        { src: music, label: "MUSIC" },
-        { src: paint, label: "PAINT" },
-        { src: internet, label: "INTERNET" }
+        { src: disk, label: "disk" },
+        { src: folder, label: "folders" },
+        { src: picture, label: "pictures" },
+        { src: music, label: "music" },
+        { src: paint, label: "paint" },
+        { src: internet, label: "internet" }
     ]
 
     const leftIcons = icons.slice(0, 3);

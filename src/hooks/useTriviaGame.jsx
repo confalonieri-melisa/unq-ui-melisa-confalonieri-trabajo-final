@@ -1,120 +1,88 @@
-import { useState } from "react"
-import { checkAnswer, getQuestions } from "../services/api"
+import { useEffect, useState } from "react"
+import { checkAnswer, getDifficulties, getQuestions } from "../services/api"
+import { useGameTimer } from "./useGameTimer";
+import { useGameState } from "./useGameState";
 
 export const useTriviaGame = () => {
-    const [gameState, setGameState] = useState("menu");
-    const [difficulty, setDifficulty] = useState(null);
-    const [questions, setQuestions] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [corrects, setCorrects] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [isCorrect, setIsCorrect] = useState(null);
-    const [answeredQuestions, setAnsweredQuestions] = useState([]);
+    const timer = useGameTimer();
+    const gameState = useGameState();
 
+    const [difficulties, setDifficulties] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
-    const [timeoutId,setTimeoutId] = useState(null);
+
+    useEffect(() => {
+        getDifficulties()
+            .then(setDifficulties)
+            .catch((err) => {
+                console.error('Error loading difficulties:', err);
+                setErrorMessage("We were unable to load difficulties. Please try again.");
+            });
+    }, []);
 
     const startGame = async(diff) => {
         try {
             setLoading(true);
             setErrorMessage(null);
-
+            
             const qs = await getQuestions(diff);
-            setDifficulty(diff);
-            setQuestions(qs);
-            setCurrentIndex(0);
-            setCorrects(0);
-            setSelectedAnswer(null);
-            setIsCorrect(null);
-            setAnsweredQuestions([]); 
+            gameState.initializeGame(diff, qs)
 
-            setGameState("playing");
         } catch (err) {
+            console.error('Error loading questions:', err);
             setErrorMessage("We were unable to load the questions. Please try again.");
-            setGameState("menu");
+            gameState.resetGame();
         } finally {
             setLoading(false);
         }
     }
 
-    const currentQuestion = questions[currentIndex] || null;
-
     const answerQuestion = async(option) => {
-        if (loading || selectedAnswer !== null) return;
-        if (timeoutId) clearTimeout(timeoutId);
+        if (loading || gameState.selectedAnswer !== null) return;
+        timer.clearTimer();
 
         try {
             setLoading(true);
             setErrorMessage(null);
             
-            const data = await checkAnswer(currentQuestion.id, option);
+            const data = await checkAnswer(gameState.currentQuestion.id, option);
+            gameState.saveAnswer(option, data.answer);
 
-            setSelectedAnswer(option);
-            setIsCorrect(data.answer);
+            timer.setTimer(() => {
+                gameState.advanceQuestion();
+            }, 800)
 
-            if(data.answer) setCorrects((c) => c + 1);
-            setAnsweredQuestions(prev => [...prev, data.answer ? "correct" : "incorrect"]);
-
-            handleNextStep();
         } catch (err) {
+            console.error('Error checking answer:', err);
             setErrorMessage("We were unable to verify your answer. Please try again.");
         } finally {
             setLoading(false);
         }
     }
 
-    const handleNextStep = () => {
-        const id = setTimeout(() => {
-            setSelectedAnswer(null);
-            setIsCorrect(null);
-
-            setCurrentIndex((prev) => {
-                const next = prev + 1;
-
-                if (next >= questions.length) {
-                    setGameState("results");
-                    return prev;
-                }
-                return next;
-            });
-        }, 800);
-
-        setTimeoutId(id);
-    }
-
     const playAgain = () => {
-        if (timeoutId) clearTimeout(timeoutId);
-        setTimeoutId(null);
-
-        startGame(difficulty);
+        timer.clearTimer();
+        startGame(gameState.difficulty);
     }
 
     const returnToMenu = () => {
-        if (timeoutId) clearTimeout(timeoutId);
-        setTimeoutId(null);
-        
-        setGameState("menu");
-        setDifficulty(null);
-        setQuestions([]);
-        setCurrentIndex(0);
-        setCorrects(0);
-        setSelectedAnswer(null);
-        setIsCorrect(null);
-        setAnsweredQuestions([]); 
+        timer.clearTimer();
+        gameState.resetGame();
     } 
 
     return {
-        gameState,
-        difficulty,
-        questions,
-        currentIndex,
-        currentQuestion,
-        totalQuestions: questions.length,
-        corrects,
-        selectedAnswer,
-        isCorrect,
-        answeredQuestions,
+        gameState: gameState.phase,
+        difficulty: gameState.difficulty,
+        questions: gameState.questions,
+        currentIndex: gameState.currentIndex,
+        currentQuestion: gameState.currentQuestion,
+        totalQuestions: gameState.totalQuestions,
+        corrects: gameState.corrects,
+        selectedAnswer: gameState.selectedAnswer,
+        isCorrect: gameState.isCorrect,
+        answeredQuestions: gameState.answeredQuestions,
+
+        difficulties,
         loading,
         errorMessage,
         setErrorMessage,
