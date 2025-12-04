@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
 import { RetroWindow } from "../retro-window/RetroWindow";
 import { ProgressBar } from "./ProgressBar.jsx"
 import "./QuestionWindow.css"
 
 export const QuestionWindow = ({ question, currentIndex, totalQuestions, onAnswer, selectedAnswer, isCorrect, answersStatus }) => {    
+    if (!question) return null;
+    
     const options = [
         { id: "option1", text: question.option1 },
         { id: "option2", text: question.option2 },
         { id: "option3", text: question.option3 },
         { id: "option4", text: question.option4 },
     ];
-
-     if (!question) return null;
 
     return (
         <RetroWindow className="window-large" title={`Question ${currentIndex + 1} / ${totalQuestions}`}>
